@@ -13,7 +13,7 @@ defmodule ElixirAuthGoogle do
   see: https://github.com/dwyl/elixir-auth-google/issues/35
   """
   def inject_poison() do
-    Mix.env() == :test && ElixirAuthGoogle.HTTPoisonMock || HTTPoison
+    System.get_env("MIX_ENV") == "test" && ElixirAuthGoogle.HTTPoisonMock || HTTPoison
   end
 
   @doc """
